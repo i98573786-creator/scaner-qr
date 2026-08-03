@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QR Storage</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+</head>
+
+<body>
+
+<div class="app">
+
+<h1>📦 QR Storage</h1>
+
+<div class="buttons">
+<button onclick="startScan()">📷 Сканувати</button>
+<button onclick="toggleTheme()">🌙 Тема</button>
+</div>
+
+
+<div id="reader"></div>
+
+
+<input id="search"
+placeholder="🔍 Пошук..."
+oninput="renderItems()">
+
+
+
+<input id="name"
+placeholder="Назва">
+
+<input id="count"
+type="number"
+placeholder="Кількість">
+
+
+<textarea id="description"
+placeholder="Опис"></textarea>
+
+
+<button onclick="saveItem()">
+💾 Зберегти
+</button>
+
+
+<h2>📦 Збереження</h2>
+
+<div id="list"></div>
+
+
+<h2>📊 Статистика</h2>
+
+<p id="stats"></p>
+
+
+<button onclick="exportCSV()">
+📤 Експорт CSV
+</button>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+<script>
+if("serviceWorker" in navigator){
+navigator.serviceWorker.register("service-worker.js");
+}
+</script>
+
+
+</body>
+  </html>
